@@ -517,11 +517,11 @@ h6 {
   position: fixed;
   top: calc(50% - 30px);
   left: calc(50% - 30px);
-  border: 6px solid #ffffff;
+  border: 6px solid #a10d0d;
   border-color: var(--accent-color) transparent var(--accent-color) transparent;
-  border-radius: 50%;
+  border-radius: 70%;
   width: 60px;
-  height: 60px;
+  height: 80px;
   animation: animate-preloader 1.5s linear infinite;
 }
 

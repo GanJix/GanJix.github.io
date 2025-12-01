@@ -95,42 +95,34 @@ p {
        box-shadow: 0 2px 5px rgba(0,0,0,0.3);
    }
    
-   
-   
-   /* ============================
-      NUORODOS
-      ============================ */
    a {
-       color: #d62828;                  /* Ryški raudona */
+       color: #d62828;                 
        font-weight: 600;
-       text-decoration: none;           /* Pašalintas pabraukimas */
+       text-decoration: none;           
        transition: all 0.2s ease-in-out;
        letter-spacing: 0.7px;
    }
    
-   /* Uždėtas hover efektas */
    a:hover {
-       color: #f77f00;                  /* Oranžinė */
-       text-decoration: underline;      /* Atsiranda pabraukimas */
-       padding-left: 3px;               /* Lengvas animuotas „pasislinkimas“ */
+       color: #f77f00;           
+       text-decoration: underline;      
+       padding-left: 3px;            
    }
    
-   /* Paspaudus nuorodą */
+
    a:active {
        color: #9d0208;
        transform: scale(0.96);
    }
-   /* ============================
-   BENDRI SEKCIJŲ TARPAI
-   ============================ */
 
-/* Visoms pagrindinėms sekcijoms suteikiame vienodus tarpus viršuje ir apačioje */
+
+
 section {
-    padding: 60px 0;                 /* Vienodas vertikalus padding */
-    margin: 0 auto;                  /* Centruotas turinys */
+    padding: 60px 0;               
+    margin: 0 auto;                  
 }
 
-/* Jei sekcijos turi konteinerius, jiems taip pat pritaikome tvarkingus tarpus */
+
 section .content-wrapper {
     padding: 30px;
     margin-bottom: 40px;
@@ -151,18 +143,13 @@ section .content-wrapper {
     transform: translateY(-4px);   
     box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 }
-/* ============================
-      NAVIGACIJOS JUOSTA
-   ============================ */
 
-/* Foninė juosta */
 nav {
     background: linear-gradient(90deg, #1e1e60, #4b4bb3);
     padding: 15px 40px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
-/* Nuorodos */
 nav a {
     color: #ffffff !important;
     font-size: 18px;
@@ -173,21 +160,16 @@ nav a {
     transition: 0.25s ease;
 }
 
-/* Užvedus pelę */
 nav a:hover {
-    color: #ffd700 !important;      /* Auksinė */
+    color: #ffd700 !important;    
     transform: scale(1.1);
 }
 
-/* Aktyvus puslapis */
+
 nav .active {
     color: #ffe06a !important;
     border-bottom: 3px solid #ffe06a;
 }
-/* ============================
-      BACK TO TOP MYGTUKAS
-   ============================ */
-
    #backToTop {
     position: fixed;
     bottom: 25px;
@@ -207,14 +189,130 @@ nav .active {
     transition: all 0.3s ease;
 }
 
-/* Užvedus */
 #backToTop:hover {
     background-color: #ff8e8e;
     transform: translateY(-4px);
     box-shadow: 0 10px 22px rgba(0,0,0,0.3);
 }
 
-/* Paspaudus */
 #backToTop:active {
     transform: scale(0.92);
+}
+
+@keyframes fade-in-section {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+section {
+    animation: fade-in-section 1.2s ease-out both;
+}
+
+
+
+@keyframes float-icons {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
+}
+
+.hero .social-links a,
+.footer .social-links a {
+    animation: float-icons 3s ease-in-out infinite;
+}
+
+#preloader.custom-preloader {
+    background: var(--background-color);
+}
+#preloader.custom-preloader::before {
+    content: "";
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    animation: pulsing-loader 1.2s infinite ease-in-out;
+}
+
+@keyframes pulsing-loader {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    50% { transform: translate(-50%, -50%) scale(1.8); opacity: 0.4; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+
+
+@media (prefers-reduced-motion: reduce) {
+
+    /* IŠJUNGIAME VISAS ANIMACIJAS */
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001s !important;
+        animation-iteration-count: 1 !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+
+    /* SEKCIJOS APARODO BE TRANSICIJŲ */
+    section {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    /* Preloader supaprastinamas */
+    #preloader.custom-preloader::before {
+        animation: none !important;
+        transform: translate(-50%, -50%) scale(1) !important;
+        opacity: 1 !important;
+    }
+}
+
+
+
+.hero .social-links a {
+    color: #ffffff;
+    background-color: rgba(255,255,255,0.18);
+}
+
+.hero .social-links a:hover {
+    background-color: var(--accent-color);
+    color: var(--contrast-color);
+}
+
+.footer .social-links a {
+    color: var(--contrast-color);
+}
+
+.footer .social-links a:hover {
+    filter: brightness(1.25);
+}
+.popup-success {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #18d26e;          /* žalia – sėkmingo pateikimo spalva */
+    color: #fff;
+    padding: 15px 25px;
+    border-radius: 12px;
+    font-size: 18px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.3s ease;
+    z-index: 999999;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.popup-success.show {
+    opacity: 1;
+    transform: translateY(0);
 }
