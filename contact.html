@@ -158,35 +158,55 @@
 
         </div>
 
-        <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="600">
-          <div class="row gy-4">
+        <form id="customContactForm">
 
-            <div class="col-md-6">
-              <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
-            </div>
+  <div class="row gy-4">
 
-            <div class="col-md-6 ">
-              <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-            </div>
+    <div class="col-md-6">
+      <input type="text" name="vardas" class="form-control" placeholder="Vardas" required>
+    </div>
 
-            <div class="col-md-12">
-              <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-            </div>
+    <div class="col-md-6">
+      <input type="text" name="pavarde" class="form-control" placeholder="Pavardė" required>
+    </div>
 
-            <div class="col-md-12">
-              <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
-            </div>
+    <div class="col-md-6">
+      <input type="email" name="email" class="form-control" placeholder="El. paštas" required>
+    </div>
 
-            <div class="col-md-12 text-center">
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your message has been sent. Thank you!</div>
+    <div class="col-md-6">
+      <input type="text" name="tel" class="form-control" placeholder="Telefono numeris" required>
+    </div>
 
-              <button type="submit">Send Message</button>
-            </div>
+    <div class="col-md-12">
+      <input type="text" name="adresas" class="form-control" placeholder="Adresas" required>
+    </div>
 
-          </div>
-        </form><!-- End Contact Form -->
+   <div class="col-md-12">
+  <label for="k1" class="form-label">Kaip vertinate bendrą patirtį(1–10): <span id="k1Value">5</span></label>
+  <input type="range" name="k1" id="k1" class="form-range" min="1" max="10" value="5">
+</div>
+
+<div class="col-md-12">
+  <label for="k2" class="form-label">Kaip vertinate mūsų paslaugą (1–10): <span id="k2Value">5</span></label>
+  <input type="range" name="k2" id="k2" class="form-range" min="1" max="10" value="5">
+</div>
+
+<div class="col-md-12">
+  <label for="k3" class="form-label">Kaip vertinate komunikacija? (1–10): <span id="k3Value">5</span></label>
+  <input type="range" name="k3" id="k3" class="form-range" min="1" max="10" value="5">
+</div>
+
+
+    <div class="col-md-12 text-center">
+      <button type="submit">Submit</button>
+    </div>
+
+    <div id="formOutput" class="text-white mt-4"></div>
+
+  </div>
+</form>
+
 
       </div>
 
@@ -240,6 +260,7 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/custom.js"></script>
 
 </body>
 
