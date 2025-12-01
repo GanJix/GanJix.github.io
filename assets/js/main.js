@@ -64,11 +64,17 @@
    * Preloader
    */
   const preloader = document.querySelector('#preloader');
-  if (preloader) {
-    window.addEventListener('load', () => {
-      preloader.remove();
-    });
-  }
+if (preloader) {
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      preloader.style.opacity = '0';
+
+      // po išblukimo – pašaliname
+      setTimeout(() => preloader.remove(), 600);
+
+    }, 4000); // <- 3000ms = 3 sekundžių laukimas
+  });
+}
 
   /**
    * Scroll top button
